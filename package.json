@@ -1,0 +1,28 @@
+{
+  "name": "algorithms",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Algorithms on typescript",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "mocha --require ts-node/register --watch-extensions ts tests/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EvgeniyKonstantinov/algorithms.git"
+  },
+  "author": "Evgeniy Konstantinov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EvgeniyKonstantinov/algorithms/issues"
+  },
+  "homepage": "https://github.com/EvgeniyKonstantinov/algorithms#readme",
+  "devDependencies": {
+    "@types/mocha": "^8.0.3",
+    "@types/node": "^14.11.5",
+    "mocha": "^8.1.3",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {}
+}
