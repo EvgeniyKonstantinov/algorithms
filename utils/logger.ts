@@ -1,10 +1,16 @@
+import { SortBy } from '../src/models/sort-by.enum';
+
 export enum LoggerColor {
   White, Red, Green, Yellow, Blue, Magenta, Cyan, Black
 }
 
 export class Logger {
-  public static speed(time: number, color: LoggerColor = LoggerColor.White): void {
-    console.log(this.colors[color], `Sorting speed: ${time}ms`);
+  public static algorithmName(name: string, color: LoggerColor = LoggerColor.Magenta): void {
+    console.log(this.colors[color], `Algorithm: ${name}`);
+  }
+
+  public static speed(time: number, color: LoggerColor = LoggerColor.White, sortBy?: SortBy): void {
+    console.log(this.colors[color], `Sorting speed${this.sortByText(sortBy)}: ${time}ms`);
   }
 
   public static get colors(): Record<LoggerColor, string> {
@@ -18,5 +24,9 @@ export class Logger {
       [LoggerColor.Cyan]: '\x1b[36m',
       [LoggerColor.Black]: '\x1b[37m',
     }
+  }
+
+  private static sortByText(sortBy?: SortBy): string {
+    return sortBy === undefined || sortBy === null ? '' : ' ' + SortBy[sortBy];
   }
 }
