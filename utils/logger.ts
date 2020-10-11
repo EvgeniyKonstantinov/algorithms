@@ -5,7 +5,7 @@ export enum LoggerColor {
 }
 
 export class Logger {
-  public static algorithmName(name: string, color: LoggerColor = LoggerColor.Magenta): void {
+  public static algorithmName(name: string, color: LoggerColor = LoggerColor.White): void {
     console.log(this.colors[color], `Algorithm: ${name}`);
   }
 
