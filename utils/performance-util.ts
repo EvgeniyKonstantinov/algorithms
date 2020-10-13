@@ -1,18 +1,16 @@
-import { SortBy } from '../src/models/sort-by.enum';
-
 const {performance} = require('perf_hooks');
 
 export class PerformanceUtil<T> {
   private _result: T;
   private _time: number;
 
-  constructor(private fn: (a : any, sortBy: SortBy) => T, private input: T, private sortBy: SortBy = SortBy.asc) {
+  constructor(private fn: (a : any, ...attr: any) => T, private input: any, private attr: any[] = []) {
     this.check();
   }
 
   private check(): void {
     const t0 = performance.now();
-    this._result = this.fn(this.input, this.sortBy);
+    this._result = this.fn(this.input, ...this.attr);
     const t1 = performance.now();
     this._time = t1 - t0;
   }
